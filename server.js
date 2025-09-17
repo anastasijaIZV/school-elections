@@ -55,7 +55,6 @@ async function init() {
     const positions = [
       { key: 'president',       title: 'Prezidents' },
       { key: 'vice_president',  title: 'Viceprezidents' },
-      // Ministries (edit/extend as you need)
       { key: 'min_tech',        title: 'Tehnikas ministrs' },
       { key: 'min_media',       title: 'Mēdiju ministrs' },
       { key: 'min_art',         title: 'Mākslas ministrs' },
