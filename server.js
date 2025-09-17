@@ -42,6 +42,10 @@ async function init() {
   const schemaPath = path.join(__dirname, 'schema.sql');
   const schema = fs.readFileSync(schemaPath, 'utf8');
 
+  await run('PRAGMA journal_mode = WAL');     // better concurrency
+  await run('PRAGMA synchronous = NORMAL');   // safe + faster with WAL
+  await run('PRAGMA busy_timeout = 3000');    // wait if DB is briefly locked
+  
   await run('PRAGMA foreign_keys = ON');
   await run('BEGIN');
   for (const stmt of schema.split(/;\s*\n/).map(s => s.trim()).filter(Boolean)) {

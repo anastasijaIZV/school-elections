@@ -117,3 +117,5 @@ async function load() {
 
 // initial render
 load();
+
+setInterval(load, 3000);  // refresh the results every 3s

@@ -121,3 +121,15 @@ window.addEventListener('keydown', async (e) => {
 });
 
 load();
+
+// Light polling: refresh only the numbers every 2s so multiple tellers stay in sync
+setInterval(async () => {
+    try {
+      const data = await fetch('/api/overview').then(r => r.json());
+      data.positions.forEach(p => p.candidates.forEach(c => {
+        const el = document.querySelector(`.count[data-id="${c.id}"]`);
+        if (el) el.textContent = c.count;
+      }));
+    } catch {}
+  }, 2000);
+  
