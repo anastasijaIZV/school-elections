@@ -14,6 +14,33 @@ async function api(path, opts = {}) {
   return res.json();
 }
 
+// CSV upload/import
+const csvFile = document.getElementById('csvFile');
+const importBtn = document.getElementById('importBtn');
+const importMode = document.getElementById('importMode');
+
+if (importBtn) {
+  importBtn.onclick = async () => {
+    if (!csvFile.files || !csvFile.files[0]) {
+      alert('Choose a CSV file first.');
+      return;
+    }
+    const text = await csvFile.files[0].text();
+    const mode = importMode?.value || 'merge';
+    try {
+      const res = await api('/api/candidates/import', {
+        method: 'POST',
+        body: JSON.stringify({ csv: text, mode })
+      });
+      await load();
+      alert(`Import complete (${mode}). Inserted: ${res.inserted ?? 0} / Rows: ${res.totalCsvRows ?? 0}`);
+    } catch (e) {
+      alert('Import failed: ' + e);
+    }
+  };
+}
+
+
 function positionRowHtml(p) {
   const candHtml = p.candidates.map(c => `
     <div class="cand" data-cid="${c.id}">

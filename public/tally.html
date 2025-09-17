@@ -8,9 +8,14 @@
 <link rel="icon" href="/top-logo.jpg">
 <img class="logo" src="/logo.png" alt="School logo" style="height:120px; width:auto;" />
 </head>
-<section style="padding:8px 0;">
-    <button id="syncBtn">Sync candidates</button>
-</section>
+<section class="subbar" id="importBar" style="gap:8px;">
+    <input type="file" id="csvFile" accept=".csv,text/csv">
+    <select id="importMode">
+      <option value="merge">Merge (add, keep existing)</option>
+      <option value="replace">Replace (make DB match CSV)</option>
+    </select>
+    <button id="importBtn">Import CSV</button>
+  </section>
 <body>
     <header>
         <h1>Admin Tally</h1>
