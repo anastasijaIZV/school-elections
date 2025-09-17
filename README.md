@@ -1,4 +1,4 @@
-# school election system to manage paper ballots
+# School election system to manage paper ballots
 
 # Paper-Ballot School Elections – Tally & Live Results
 
