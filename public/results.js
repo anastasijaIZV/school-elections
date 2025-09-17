@@ -29,6 +29,39 @@ const chartAreaBorder = {
   }
 };
 
+const autoChk = document.getElementById('autoRefresh');
+
+if (refreshBtn) refreshBtn.onclick = load;
+
+let refreshTimer = null;
+function setAutoRefresh(on) {
+  if (refreshTimer) { clearInterval(refreshTimer); refreshTimer = null; }
+  if (on) {
+    // refresh every 5s only when tab is visible
+    refreshTimer = setInterval(() => {
+      if (!document.hidden) load();
+    }, 5000);
+  }
+}
+
+// restore last setting (default OFF)
+if (autoChk) {
+  autoChk.checked = localStorage.getItem('results:auto') === '1';
+  setAutoRefresh(autoChk.checked);
+  autoChk.addEventListener('change', () => {
+    localStorage.setItem('results:auto', autoChk.checked ? '1' : '0');
+    setAutoRefresh(autoChk.checked);
+  });
+}
+
+window.addEventListener('beforeunload', () => {
+  if (refreshTimer) clearInterval(refreshTimer);
+});
+
+// initial render
+load();
+
+
 async function load() {
   try {
     content.innerHTML = 'Loading…';
@@ -117,5 +150,3 @@ async function load() {
 
 // initial render
 load();
-
-setInterval(load, 3000);  // refresh the results every 3s
