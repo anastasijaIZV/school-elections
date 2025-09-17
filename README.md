@@ -1,8 +1,6 @@
 # School election system to manage paper ballots
 
-# Paper-Ballot School Elections – Tally & Live Results
-
-A tiny Node.js app for **manual paper vote counting** with a clean **admin tally** tool and a **public results** page (bar charts + table).
+A small Node.js web-app for **manual paper vote counting** with a clean **admin tally** tool and a **public results** page (bar charts + table).
 
 - **Admin (private):** `/tally.html` — add/remove votes with big buttons or keyboard, **Import CSV**, or **Sync** from a CSV file on disk.
 - **Results (public):** `/results.html` — compact cards with colored charts; click **Refresh** to update.
