@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+npm-debug.log*
+yarn.lock
+
+# env & secrets
+.env
+
+# database & local data
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+
+# OS/Editor junk
+.DS_Store
+.vscode/

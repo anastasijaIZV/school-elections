@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skolas pašpārvaldes vēlēšanas 2025/26.mg</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- Load Chart.js BEFORE results.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="icon" href="/top-logo.jpg">
+  <img class="logo" src="/logo.png" alt="School logo" style="height:120px; width:auto;" />
+</head>
+<body>
+  <header>
+    <h1>Skolas pašpārvaldes vēlēšanas 2025/26.mg</h1>
+    <button id="refresh">Refresh</button>
+  </header>
+
+  <!-- Results will be injected here -->
+  <main id="content" class="results-grid"></main>
+
+  <!-- Defer so DOM + Chart.js are ready -->
+  <script src="/results.js" defer></script>
+</body>
+</html>
