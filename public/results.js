@@ -10,6 +10,9 @@ const PALETTE = [
     { bg: 'rgba(70,75,130,0.35)', border: 'rgba(70,75,130,1)' }, // main dark blue
     { bg: 'rgba(0,160,150,0.35)', border: 'rgba(0,160,150,1)' }, // zilganzaļš
     { bg: 'rgba(125,165,30,0.35)', border: 'rgba(125,165,30,1)' }, // green
+    { bg: 'rgba(0,160,150,0.35)', border: 'rgba(0,160,150,1)' }, // zilganzaļš
+    { bg: 'rgba(70,75,130,0.35)', border: 'rgba(70,75,130,1)' }, // main dark blue
+    { bg: 'rgba(150,5,100,0.35)', border: 'rgba(150,5,100,1)' }, // violets
 ];
 
 // plugin: draw a subtle border around the chart *area*
@@ -79,7 +82,7 @@ async function load() {
 
             // Mini table
             const table = document.createElement('table');
-            table.innerHTML = `<thead><tr><th>Candidate</th><th>Class</th><th>Votes</th></tr></thead>`;
+            table.innerHTML = `<thead><tr><th>Kandidāts</th><th>Klase</th><th>Balsis</th></tr></thead>`;
             const tbody = document.createElement('tbody');
             (p.candidates || []).slice().sort((a, b) => b.count - a.count).forEach(c => {
                 const tr = document.createElement('tr');

@@ -1,4 +1,4 @@
-// server.js
+
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
@@ -45,7 +45,7 @@ async function init() {
   await run('PRAGMA journal_mode = WAL');     // better concurrency
   await run('PRAGMA synchronous = NORMAL');   // safe + faster with WAL
   await run('PRAGMA busy_timeout = 3000');    // wait if DB is briefly locked
-  
+
   await run('PRAGMA foreign_keys = ON');
   await run('BEGIN');
   for (const stmt of schema.split(/;\s*\n/).map(s => s.trim()).filter(Boolean)) {

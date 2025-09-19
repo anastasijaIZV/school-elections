@@ -1,25 +1,23 @@
-Alice,10A,president
-Bob,11B,vice_president
-Eva,10C,min_tech
-Karlis,12A,min_media
-Ilze,10B,min_art
-Oto,11C,min_culture
-Raitis,12C,min_internal
-Dace,10A,president
-Anna,12A,min_media
-Artemijs,10B,min_art
-Evelīna,11C,min_culture
-Ivo,12C,min_internal
-Sandra,10A,president
-Andrejs,11B,vice_president
-Sandijs,10C,min_tech
-Annija,12A,min_media
-Agate,11C,min_culture
-Rihards,12C,min_internal
-Filips,11B,vice_president
-Sigita,10C,min_tech
-Anastasija,12A,min_media
-Arturs,10B,min_art
-Līna,11C,min_culture
-Rinalds,12C,min_internal
-Roberts,12C,min_internal
+Marta Liepiņa,11,president
+Iļja Polis,12,president
+Edgars Reichmanis-Norbuts,11,president
+Aleksis Baduns,12,vice_president
+Līva Boša,12,vice_president
+Rūdolfs Gustavs Gailis,10,vice_president
+Beatrise Helmane,11,vice_president
+Pēteris Sniegs-Sniedziņš,10,vice_president
+Evelīna Tillere,12,vice_president
+Rinalds Veinbergs,12,vice_president
+Valts Vekters,12,vice_president
+Rūdolfs Gustavs Gailis,10,min_tech
+Arturs Petrovs,12,min_tech
+Veronika Jariga,12,min_media
+Pēteris Sniegs-Sniedziņš,10,min_media
+Rinalds Veinbergs,12,min_media
+Līva Boša,12,min_art
+Sofja Meņšikova-Fiļimonova,12,min_art
+Beatrise Helmane,11,min_culture
+Evelīna Tillere,12,min_culture
+Aleksis Baduns,12,min_internal
+Valts Vekters,12,min_internal
+Rolands Voino,12,min_internal

@@ -6,9 +6,9 @@
 <title>Admin Tally</title>
 <link rel="stylesheet" href="/styles.css" />
 <link rel="icon" href="/top-logo.jpg">
-<img class="logo" src="/logo.png" alt="School logo" style="height:120px; width:auto;" />
 </head>
 <section class="subbar" id="importBar" style="gap:8px;">
+    <header>
     <input type="file" id="csvFile" accept=".csv,text/csv">
     <select id="importMode">
       <option value="merge">Merge (add, keep existing)</option>
@@ -18,7 +18,15 @@
   </section>
 <body>
     <header>
+        <header></header>
+            <img class="logo"
+            src="/logo.png"
+            alt="School logo" 
+            style="height:120px; width:auto; border:2px solid #d1d5db; border-radius:5px; padding:4px; background:#fff; box-sizing:border-box;"
+            />
         <h1>Admin Tally</h1>
+        <span class="tm"><strong>A.B</strong> © 2025</span>
+      
         <input id="adminPass" type="password" placeholder="Admin password" />
         <button id="reload">Reload</button>
       </header>
