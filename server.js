@@ -60,7 +60,7 @@ async function init() {
       { key: 'president',       title: 'Prezidents' },
       { key: 'vice_president',  title: 'Viceprezidents' },
       { key: 'min_tech',        title: 'Tehnikas ministrs' },
-      { key: 'min_media',       title: 'Mēdiju ministrs' },
+      { key: 'min_media',       title: 'Mediju ministrs' },
       { key: 'min_art',         title: 'Mākslas ministrs' },
       { key: 'min_culture',     title: 'Kultūras ministrs' },
       { key: 'min_internal',    title: 'Iekšlietu ministrs' },
@@ -123,6 +123,10 @@ async function importCandidatesFromCsv(csv, mode = 'merge') {
   return { mode, inserted, totalCsvRows: rows.length };
 }
 
+const TITLE_OVERRIDES = {
+  vice_president: 'Viceprezidents',
+};
+
 // --- API routes ---
 
 // Public overview: positions + candidates + counts
@@ -132,18 +136,26 @@ app.get('/api/overview', async (_req, res) => {
     const candidates = await all('SELECT * FROM candidates ORDER BY id');
     const counts = await all('SELECT candidate_id, count FROM tallies');
     const countMap = new Map(counts.map(c => [c.candidate_id, c.count]));
+
     const grouped = positions.map(p => ({
       key: p.key,
-      title: p.title,
+      title: TITLE_OVERRIDES[p.key] || p.title, // ← apply override here
       candidates: candidates
         .filter(c => c.position_key === p.key)
-        .map(c => ({ id: c.id, name: c.name, class: c.class, count: countMap.get(c.id) || 0 })),
+        .map(c => ({
+          id: c.id,
+          name: c.name,
+          class: c.class,
+          count: countMap.get(c.id) || 0
+        })),
     }));
+
     res.json({ positions: grouped });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
 });
+
 
 // Admin: add a candidate (one-by-one)
 app.post('/api/candidates', requireAdmin, async (req, res) => {
